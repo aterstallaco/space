@@ -6,80 +6,65 @@
     <title>2026 Space Content Strategy: Market Analysis</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* Palette: Solar Flare & Deep Space 
-           Background: #0B0C10 (Void)
-           Surface: #1F2833 (Hull)
-           Primary Accent: #FF6B35 (Solar Flare)
-           Secondary Accent: #F7C59F (Dusty Apricot)
-           Text: #C5C6C7 (Light Grey/White)
-        */
+        :root {
+            --solar-flare: #FF6B35;
+            --dusty-apricot: #F7C59F;
+            --void-black: #0B0C10;
+            --hull-gray: #1F2833;
+        }
 
-    /* Update these specific blocks in your <style> tag */
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--void-black);
+            color: #C5C6C7;
+        }
 
-body {
-    font-family: 'Space Grotesk', sans-serif; /* Technical yet readable */
-    background-color: #0B0C10;
-    color: #C5C6C7;
-    letter-spacing: -0.01em; /* Tighter look for modern UI */
-}
+        h1, h2, h3, h4, .syncopate {
+            font-family: 'Syncopate', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
 
-h1, h2, h3, h4, .orbitron {
-    font-family: 'Syncopate', sans-serif; /* The Artemis 'Wide' look */
-    text-transform: uppercase;
-    letter-spacing: 0.15em; /* Spacing out letters creates that 'Official Agency' feel */
-}
-
-.solar-text {
-    color: #FF6B35;
-    /* Reduced glow for a cleaner, more professional 'Mission Control' look */
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5); 
-}
+        .solar-text {
+            color: var(--solar-flare);
+            text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
+        }
 
         .card {
-            background-color: #1F2833;
+            background-color: var(--hull-gray);
             border: 1px solid rgba(247, 197, 159, 0.2);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
             transition: all 0.3s ease;
         }
 
         .card:hover {
-            border-color: #FF6B35;
+            border-color: var(--solar-flare);
             box-shadow: 0 0 20px rgba(255, 107, 53, 0.1);
-            transform: translateY(-2px);
         }
 
-        /* Chart Container Styling */
         .chart-container {
             position: relative;
             width: 100%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 800px;
+            margin: auto;
             height: 350px;
         }
 
-        @media (min-width: 768px) {
-            .chart-container { height: 400px; }
-        }
-
         /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0B0C10; }
-        ::-webkit-scrollbar-thumb { 
-            background: #FF6B35; 
-            border-radius: 4px; 
-        }
-        ::-webkit-scrollbar-thumb:hover { background: #ff855a; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--void-black); }
+        ::-webkit-scrollbar-thumb { background: var(--solar-flare); border-radius: 3px; }
 
-        .flow-arrow {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #FF6B35;
-            font-size: 24px;
+        .flow-step-box {
+            background: #0B0C10;
+            border: 1px solid #374151;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 0.5rem;
+            flex: 1;
         }
     </style>
 </head>
@@ -87,209 +72,185 @@ h1, h2, h3, h4, .orbitron {
 
     <header class="w-full py-16 px-6 border-b border-gray-800 bg-gradient-to-b from-[#1a1c24] to-[#0B0C10]">
         <div class="max-w-7xl mx-auto text-center">
-            <h1 class="text-4xl md:text-6xl font-black text-white tracking-widest uppercase mb-4 solar-text">
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-4 solar-text">
                 Project: Horizon 2026
             </h1>
-            <p class="text-xl md:text-2xl text-[#F7C59F] font-light max-w-3xl mx-auto">
-                Strategic Market Analysis for Next-Gen Non-Fiction Space Programming
+            <p class="text-lg md:text-xl text-[#F7C59F] font-light max-w-3xl mx-auto uppercase tracking-widest">
+                Strategic Market Analysis: Next-Gen Space Programming
             </p>
             <div class="mt-8 flex justify-center space-x-4">
-                <span class="px-4 py-1 rounded-full border border-[#FF6B35] text-[#FF6B35] text-sm font-semibold">Target: Gen Alpha</span>
-                <span class="px-4 py-1 rounded-full border border-[#F7C59F] text-[#F7C59F] text-sm">Focus: Survival STEM</span>
+                <span class="px-4 py-1 rounded-full border border-[#FF6B35] text-[#FF6B35] text-xs font-bold">TARGET: GEN ALPHA</span>
+                <span class="px-4 py-1 rounded-full border border-gray-600 text-gray-400 text-xs">REF: ARTEMIS IV/V</span>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-20">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-24">
 
         <section>
-            <div class="bg-[#1F2833] rounded-xl p-8 border-l-4 border-[#FF6B35] shadow-2xl">
-                <h2 class="text-3xl font-bold text-white mb-4 orbitron uppercase tracking-tight">Executive Summary</h2>
-                <p class="text-lg leading-relaxed text-gray-300 mb-6">
-                    The 2026 media landscape shows a critical saturation point in fantasy-based sci-fi, creating a <strong class="text-[#FF6B35]">significant void in high-stakes, reality-based STEM content</strong>.
-                </p>
-                <p class="text-lg leading-relaxed text-gray-300 mb-6">
-                    The 10-13 "Pre-Teen" demographic demands content that respects their intelligence—moving away from "whimsical exploration" toward <strong class="text-white">"survival science" and "engineering reality."</strong>
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                    <div class="bg-[#0B0C10] p-6 rounded-lg text-center border border-gray-800">
-                        <div class="text-4xl font-black text-[#FF6B35] mb-2">10-13</div>
-                        <div class="text-xs uppercase tracking-widest text-gray-500">Primary Opportunity Age</div>
+            <div class="bg-[#1F2833] rounded-xl p-8 border-l-4 border-[#FF6B35]">
+                <h2 class="text-2xl font-bold text-white mb-6">Executive Summary</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    <div class="text-gray-300 space-y-4">
+                        <p>The 2026 media landscape shows a critical saturation point in fantasy-based sci-fi, creating a <span class="text-[#FF6B35] font-bold">significant void</span> in reality-based STEM content.</p>
+                        <p>While the 6-9 demographic is well-served, the <span class="text-white font-bold">10-13 "Pre-Teen" demographic is underserved</span>. They demand content that moves from "whimsical" to <span class="text-[#F7C59F]">"survival science."</span></p>
                     </div>
-                    <div class="bg-[#0B0C10] p-6 rounded-lg text-center border border-gray-800">
-                        <div class="text-4xl font-black text-[#FF6B35] mb-2">Survival</div>
-                        <div class="text-xs uppercase tracking-widest text-gray-500">Highest Demand Tone</div>
-                    </div>
-                    <div class="bg-[#0B0C10] p-6 rounded-lg text-center border border-gray-800">
-                        <div class="text-4xl font-black text-[#FF6B35] mb-2">Hybrid</div>
-                        <div class="text-xs uppercase tracking-widest text-gray-500">Financing Model</div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="bg-[#0B0C10] p-4 rounded text-center border border-gray-800">
+                            <div class="text-3xl font-bold text-[#FF6B35]">10-13</div>
+                            <div class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Target Age</div>
+                        </div>
+                        <div class="bg-[#0B0C10] p-4 rounded text-center border border-gray-800">
+                            <div class="text-3xl font-bold text-[#FF6B35]">STEM</div>
+                            <div class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">High Demand</div>
+                        </div>
+                        <div class="bg-[#0B0C10] p-4 rounded text-center border border-gray-800">
+                            <div class="text-3xl font-bold text-[#FF6B35]">Hybrid</div>
+                            <div class="text-[10px] text-gray-500 uppercase tracking-widest mt-1">Funding</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <section>
-            <div class="mb-8">
-                <h2 class="text-3xl font-bold text-white mb-2 orbitron">Audience & Tone Analysis</h2>
-                <p class="text-gray-400 max-w-2xl">Data shows a pivot from fantasy to functionality around age 10.</p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <h2 class="text-2xl font-bold text-white mb-8">Audience & Tone Analysis</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 <div class="space-y-6">
-                    <div class="card p-6 rounded-xl">
-                        <h3 class="text-xl font-bold text-[#F7C59F] mb-3">Ages 6-9: The "Wonder" Phase</h3>
-                        <p class="text-sm text-gray-300 mb-4">Driven by curiosity and visual spectacle. Prefers animated guides.</p>
-                        <ul class="text-sm text-gray-400 space-y-2">
-                            <li>• <strong class="text-white">Keywords:</strong> Adventure, Mystery.</li>
-                            <li>• <strong class="text-white">Saturation:</strong> <span class="text-red-400">High</span></li>
-                        </ul>
+                    <div class="card p-6 rounded-lg">
+                        <h3 class="text-[#F7C59F] font-bold mb-2">Ages 6-9: The "Wonder" Phase</h3>
+                        <p class="text-sm text-gray-400">Driven by curiosity and visual spectacle. Saturation: <span class="text-red-500">High</span>.</p>
                     </div>
-                    <div class="card p-6 rounded-xl border-[#FF6B35] border-2 bg-[#1F2833]">
-                        <h3 class="text-xl font-bold text-[#FF6B35] mb-3">Ages 10-13: The "Application" Phase</h3>
-                        <p class="text-sm text-gray-300 mb-4">Driven by mechanics and risk. They want to know "How do I survive there?"</p>
-                        <ul class="text-sm text-gray-400 space-y-2">
-                            <li>• <strong class="text-white">Keywords:</strong> Engineering, Danger, Tech.</li>
-                            <li>• <strong class="text-white">Saturation:</strong> <span class="text-green-400">Low (Strategic Gap)</span></li>
-                        </ul>
+                    <div class="card p-6 rounded-lg border-2 border-[#FF6B35]">
+                        <h3 class="text-[#FF6B35] font-bold mb-2">Ages 10-13: The "Application" Phase</h3>
+                        <p class="text-sm text-gray-400">Driven by engineering, mechanics, and survival. Saturation: <span class="text-green-500">Low</span>.</p>
                     </div>
                 </div>
+                <div class="bg-[#1F2833] p-6 rounded-xl border border-gray-800">
+                    <div class="chart-container"><canvas id="audienceChart"></canvas></div>
+                </div>
+            </div>
+        </section>
 
-                <div class="bg-[#1F2833] p-6 rounded-xl shadow-lg border border-gray-800">
-                    <h4 class="text-center text-white mb-4 text-xs uppercase tracking-widest">Interest by Narrative Tone</h4>
-                    <div class="chart-container">
-                        <canvas id="audienceChart"></canvas>
+        <section>
+            <h2 class="text-2xl font-bold text-white mb-8">Content Heatmap: The Blue Ocean</h2>
+            <div class="bg-[#1F2833] p-8 rounded-xl border border-gray-800">
+                <div class="chart-container" style="height: 400px;"><canvas id="heatmapChart"></canvas></div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+                    <div class="p-4 bg-[#0B0C10] border border-gray-700 rounded">
+                        <h4 class="text-[#FF6B35] text-sm font-bold">Space Junk</h4>
+                        <p class="text-xs text-gray-500 mt-1">Orbital mechanics + Eco-consciousness.</p>
+                    </div>
+                    <div class="p-4 bg-[#0B0C10] border border-gray-700 rounded">
+                        <h4 class="text-[#FF6B35] text-sm font-bold">Lunar Habitats</h4>
+                        <p class="text-xs text-gray-500 mt-1">Actual blueprints of Moon base survival.</p>
+                    </div>
+                    <div class="p-4 bg-[#0B0C10] border border-gray-700 rounded">
+                        <h4 class="text-[#FF6B35] text-sm font-bold">Deep Sleep</h4>
+                        <p class="text-xs text-gray-500 mt-1">Human biology for long-duration flight.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <section>
-            <div class="mb-8 text-center">
-                <h2 class="text-3xl font-bold text-white mb-2 orbitron">Content Heatmap: The "Orange Ocean"</h2>
-                <p class="text-gray-400 mx-auto max-w-3xl">Identifying high-interest topics with low market saturation.</p>
-            </div>
-
-            <div class="bg-[#1F2833] p-6 rounded-xl shadow-lg border border-gray-800">
-                <div class="chart-container" style="max-width: 800px; height: 450px;">
-                    <canvas id="heatmapChart"></canvas>
+            <h2 class="text-2xl font-bold text-white mb-8">Consortium Funding Flow</h2>
+            <div class="bg-[#1F2833] p-8 rounded-xl border border-gray-800">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-12">
+                    <div class="flow-step-box">
+                        <span class="text-gray-500 text-[10px] block uppercase">Phase 01</span>
+                        <span class="text-white font-bold">Gov STEM Grants</span>
+                    </div>
+                    <div class="text-[#FF6B35] font-bold">→</div>
+                    <div class="flow-step-box">
+                        <span class="text-gray-500 text-[10px] block uppercase">Phase 02</span>
+                        <span class="text-white font-bold">Tech Brand Equity</span>
+                    </div>
+                    <div class="text-[#FF6B35] font-bold">→</div>
+                    <div class="flow-step-box">
+                        <span class="text-gray-500 text-[10px] block uppercase">Phase 03</span>
+                        <span class="text-white font-bold">Global Pre-Sales</span>
+                    </div>
+                    <div class="text-[#FF6B35] font-bold">=</div>
+                    <div class="flow-step-box border-[#FF6B35] bg-[#FF6B35] text-black">
+                        <span class="text-black font-bold uppercase text-xs">Greenlight</span>
+                    </div>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
-                    <div class="p-4 border border-gray-700 rounded bg-[#0B0C10] hover:border-[#FF6B35] transition-colors">
-                        <h5 class="text-[#FF6B35] font-bold">Space Junk & Cleanup</h5>
-                        <p class="text-xs text-gray-500 mt-2">Eco-consciousness meets orbital mechanics.</p>
-                    </div>
-                    <div class="p-4 border border-gray-700 rounded bg-[#0B0C10] hover:border-[#FF6B35] transition-colors">
-                        <h5 class="text-[#FF6B35] font-bold">Lunar Habitats</h5>
-                        <p class="text-xs text-gray-500 mt-2">The engineering blueprints of moon bases.</p>
-                    </div>
-                    <div class="p-4 border border-gray-700 rounded bg-[#0B0C10] hover:border-[#FF6B35] transition-colors">
-                        <h5 class="text-[#FF6B35] font-bold">Deep Space Sleep</h5>
-                        <p class="text-xs text-gray-500 mt-2">Bio-tech for long-duration travel.</p>
-                    </div>
-                </div>
+                <div class="chart-container" style="height: 250px;"><canvas id="financingChart"></canvas></div>
             </div>
         </section>
 
         <section class="pb-20">
-            <div class="bg-gradient-to-r from-[#1F2833] to-[#0B0C10] p-10 rounded-2xl border border-gray-800">
-                <h2 class="text-3xl font-bold text-white mb-8 orbitron text-center">Hybrid Financing Architecture</h2>
-                <div class="flex flex-col md:flex-row justify-around items-center gap-8">
-                    <div class="w-full md:w-1/2 chart-container" style="height: 300px;">
-                        <canvas id="financingChart"></canvas>
+            <h2 class="text-2xl font-bold text-white mb-8">Foundation: "Generation Beyond"</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-gradient-to-br from-[#FF6B35] to-[#E2725B] p-8 rounded-xl text-black">
+                    <h3 class="font-bold text-sm uppercase mb-2">The Logline</h3>
+                    <p class="text-3xl font-bold leading-tight">"What once was fantasy, is now reality. It's about survival."</p>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-[#1F2833] p-4 rounded border-l-2 border-[#FF6B35]">
+                        <h4 class="text-white font-bold text-sm">For Parents</h4>
+                        <p class="text-xs text-gray-400">Critical thinking via failure-based engineering.</p>
                     </div>
-                    <div class="w-full md:w-1/2 space-y-4">
-                        <div class="p-4 rounded-lg bg-[#0B0C10] border-l-4 border-[#FF6B35]">
-                            <h4 class="text-white font-bold">1. Gov STEM Grants (30%)</h4>
-                            <p class="text-xs text-gray-400">Non-dilutive funding for "Future Workforce" content.</p>
-                        </div>
-                        <div class="p-4 rounded-lg bg-[#0B0C10] border-l-4 border-[#F7C59F]">
-                            <h4 class="text-white font-bold">2. Brand Consortium (20%)</h4>
-                            <p class="text-xs text-gray-400">Strategic tech partnerships (SpaceX/LEGO).</p>
-                        </div>
-                        <div class="p-4 rounded-lg bg-[#0B0C10] border-l-4 border-gray-600">
-                            <h4 class="text-white font-bold">3. Global Pre-Sales (50%)</h4>
-                            <p class="text-xs text-gray-400">Multi-territory licensing and Streamer buy-in.</p>
-                        </div>
+                    <div class="bg-[#1F2833] p-4 rounded border-l-2 border-[#FF6B35]">
+                        <h4 class="text-white font-bold text-sm">For Investors</h4>
+                        <p class="text-xs text-gray-400">Evergreen library with high STEM licensing potential.</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="w-full py-8 border-t border-gray-800 bg-[#0B0C10] text-center">
-        <p class="text-gray-600 text-xs tracking-widest uppercase">© 2026 Strategic Planning Review // Classified</p>
-    </footer>
-
     <script>
-        // Global Chart Defaults
-        Chart.defaults.color = '#C5C6C7';
-        Chart.defaults.font.family = "'Inter', sans-serif";
+        Chart.defaults.color = '#9CA3AF';
+        Chart.defaults.font.family = 'Space Grotesk';
 
-        // 1. Audience Tone Chart
-        const ctxAudience = document.getElementById('audienceChart').getContext('2d');
-        new Chart(ctxAudience, {
+        // Audience Chart
+        new Chart(document.getElementById('audienceChart'), {
             type: 'bar',
             data: {
-                labels: ['Whimsy', 'Accuracy', 'Drama', 'Engineering', 'Survival'],
+                labels: ['Accuracy', 'Engineering', 'Survival', 'Drama', 'Whimsy'],
                 datasets: [
-                    { label: 'Ages 6-9', data: [9, 3, 8, 4, 2], backgroundColor: '#F7C59F' },
-                    { label: 'Ages 10-13', data: [2, 8, 5, 9, 9], backgroundColor: '#FF6B35' }
+                    { label: '6-9 Years', data: [3, 4, 2, 8, 9], backgroundColor: '#F7C59F' },
+                    { label: '10-13 Years', data: [8, 9, 9, 5, 2], backgroundColor: '#FF6B35' }
                 ]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: { beginAtZero: true, grid: { color: '#1F2833' } },
-                    x: { grid: { display: false } }
-                }
-            }
+            options: { responsive: true, maintainAspectRatio: false }
         });
 
-        // 2. Heatmap Bubble Chart
-        const ctxHeatmap = document.getElementById('heatmapChart').getContext('2d');
-        new Chart(ctxHeatmap, {
+        // Heatmap Chart
+        new Chart(document.getElementById('heatmapChart'), {
             type: 'bubble',
             data: {
                 datasets: [{
-                    label: 'Opportunity',
+                    label: 'Opportunity Areas',
                     data: [
-                        { x: 80, y: 90, r: 10, topic: "Fantasy" },
-                        { x: 20, y: 85, r: 25, topic: "Space Junk" },
-                        { x: 30, y: 95, r: 30, topic: "Lunar Habitat" },
-                        { x: 25, y: 75, r: 20, topic: "Survival" }
+                        { x: 80, y: 90, r: 10, t: 'Fantasy' },
+                        { x: 20, y: 85, r: 25, t: 'Space Junk' },
+                        { x: 30, y: 95, r: 30, t: 'Lunar Habitat' }
                     ],
-                    backgroundColor: (c) => c.raw.r > 20 ? '#FF6B35' : '#F7C59F77'
+                    backgroundColor: (ctx) => ctx.raw.r > 20 ? '#FF6B35' : '#4B5563'
                 }]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: { title: { display: true, text: 'Audience Interest' }, grid: { color: '#1F2833' } },
-                    x: { title: { display: true, text: 'Market Saturation' }, grid: { color: '#1F2833' }, reverse: true }
-                }
+            options: { 
+                responsive: true, maintainAspectRatio: false,
+                scales: { x: { reverse: true, title: { display: true, text: 'Saturation' } }, y: { title: { display: true, text: 'Interest' } } }
             }
         });
 
-        // 3. Financing Doughnut
-        const ctxFinance = document.getElementById('financingChart').getContext('2d');
-        new Chart(ctxFinance, {
+        // Finance Chart
+        new Chart(document.getElementById('financingChart'), {
             type: 'doughnut',
             data: {
-                labels: ['Streamer', 'Hybrid', 'Public TV', 'Brand'],
+                labels: ['Grants', 'Brands', 'Global TV', 'Streamer'],
                 datasets: [{
-                    data: [15, 45, 25, 15],
-                    backgroundColor: ['#1F2833', '#FF6B35', '#F7C59F', '#4b5563'],
+                    data: [30, 20, 30, 20],
+                    backgroundColor: ['#FF6B35', '#F7C59F', '#4B5563', '#1F2833'],
                     borderColor: '#0B0C10',
-                    borderWidth: 4
+                    borderWidth: 5
                 }]
             },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: { legend: { position: 'bottom' } }
-            }
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'right' } } }
         });
     </script>
 </body>
