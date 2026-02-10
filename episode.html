@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Episode Outline: Oxygen Down</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Orbitron:wght@600;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0B0C10; color: #C5C6C7; }
+        .orbitron { font-family: 'Orbitron', sans-serif; }
+        .neon-border { border: 1px solid #66FCF1; box-shadow: 0 0 10px rgba(102, 252, 241, 0.2); }
+        .timer-bg { background: linear-gradient(90deg, #1F2833 0%, #0B0C10 100%); }
+        .chart-container { position: relative; width: 100%; height: 200px; }
+    </style>
+    <!-- 
+        NO SVG USED. NO MERMAID JS USED. 
+        EPISODE TITLE: Oxygen Down
+        FORMAT: 45-Minute Real-Time Narrative Docu-Series
+    -->
+</head>
+<body class="p-4 md:p-10">
+
+    <!-- MISSION HEADER -->
+    <header class="max-w-4xl mx-auto mb-12 text-center">
+        <div class="inline-block px-4 py-1 mb-4 text-xs font-bold tracking-widest text-black bg-[#66FCF1] orbitron">
+            EPISODE 01: OPERATIONAL STATUS RED
+        </div>
+        <h1 class="text-4xl md:text-6xl font-black text-white orbitron mb-2">OXYGEN DOWN</h1>
+        <p class="text-[#45A29E] uppercase tracking-tighter font-bold">Location: Shackleton Crater, Lunar South Pole | T-Minus 45:00</p>
+    </header>
+
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- LEFT COL: THE REAL-TIME DASHBOARD -->
+        <div class="md:col-span-1 space-y-6">
+            <div class="card bg-[#1F2833] p-6 rounded-xl neon-border">
+                <h3 class="orbitron text-[#66FCF1] text-sm mb-4">HABITAT VITALS</h3>
+                <div class="chart-container">
+                    <canvas id="oxygenChart"></canvas>
+                </div>
+                <div class="mt-4 space-y-2">
+                    <div class="flex justify-between text-xs">
+                        <span>O2 RESERVE:</span>
+                        <span class="text-red-500 font-bold">18% AND DROPPING</span>
+                    </div>
+                    <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                        <div class="bg-red-500 h-full" style="width: 18%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-[#1F2833] p-6 rounded-xl border border-gray-700">
+                <h3 class="orbitron text-white text-sm mb-4">THE MISSION TASK</h3>
+                <p class="text-xs leading-relaxed text-gray-400">
+                    A micro-meteorite has pierced the primary CO2 Scrubber. The chemical bed is contaminated. The crew has 45 minutes to build a "MacGyver" scrubber using only:
+                </p>
+                <ul class="mt-3 space-y-2 text-xs text-[#66FCF1]">
+                    <li>• Lunar Regolith (Moon Dust)</li>
+                    <li>• Discarded PE Plastic Bags</li>
+                    <li>• A broken EVA cooling fan</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- RIGHT COL: THE BEAT SHEET (EPISODE FLOW) -->
+        <div class="md:col-span-2 space-y-8">
+            
+            <!-- SECTION 1 -->
+            <div class="relative pl-8 border-l-2 border-[#45A29E]">
+                <div class="absolute -left-3 top-0 w-6 h-6 bg-[#66FCF1] rounded-full flex items-center justify-center text-black font-bold text-xs">01</div>
+                <h4 class="orbitron text-white text-lg">00:00 - 10:00 | The Breach</h4>
+                <p class="text-gray-400 mt-2 text-sm italic">"The Martian" Moment: Problem Identification</p>
+                <p class="text-sm mt-3">
+                    The alarm sounds. No sci-fi explosions—just the eerie, high-pitched hiss of a pressure leak. Host/Lead Engineer <strong>Kira (14)</strong> explains the physics: Why can't we just patch it? Because the CO2 levels are climbing faster than the O2 is leaking. If they don't scrub the air, they fall asleep in 30 minutes and never wake up.
+                </p>
+            </div>
+
+            <!-- SECTION 2 -->
+            <div class="relative pl-8 border-l-2 border-[#45A29E]">
+                <div class="absolute -left-3 top-0 w-6 h-6 bg-[#66FCF1] rounded-full flex items-center justify-center text-black font-bold text-xs">02</div>
+                <h4 class="orbitron text-white text-lg">10:00 - 25:00 | The "Bust" Labs</h4>
+                <p class="text-gray-400 mt-2 text-sm italic">"Mythbusters" Moment: Testing the Regolith</p>
+                <p class="text-sm mt-3">
+                    The crew attempts to use raw Moon dust to filter the air. 
+                    <br><br>
+                    <span class="bg-gray-900 p-2 block border-l-2 border-red-500">
+                        <strong>THE EXPERIMENT:</strong> On-screen, we see a "Terrestrial Lab" (Earth-based experts) running a side-by-side test. They prove that raw regolith is too abrasive—it shreds the fan blades in seconds. <strong>MYTH BUSTED.</strong>
+                    </span>
+                </p>
+            </div>
+
+            <!-- SECTION 3 -->
+            <div class="relative pl-8 border-l-2 border-[#45A29E]">
+                <div class="absolute -left-3 top-0 w-6 h-6 bg-[#66FCF1] rounded-full flex items-center justify-center text-black font-bold text-xs">03</div>
+                <h4 class="orbitron text-white text-lg">25:00 - 40:00 | Engineering Under Fire</h4>
+                <p class="text-gray-400 mt-2 text-sm italic">"24" Moment: The Clock is Ticking</p>
+                <p class="text-sm mt-3">
+                    Oxygen at 12%. Kira realizes they can use "Sintering"—using the habitat's microwave heater to melt the regolith into a porous ceramic filter. It’s a race to calibrate the power levels without blowing the hab's circuit breaker. 
+                </p>
+            </div>
+
+            <!-- SECTION 4 -->
+            <div class="relative pl-8 border-l-2 border-[#45A29E]">
+                <div class="absolute -left-3 top-0 w-6 h-6 bg-[#66FCF1] rounded-full flex items-center justify-center text-black font-bold text-xs">04</div>
+                <h4 class="orbitron text-white text-lg">40:00 - 45:00 | Success or Failure?</h4>
+                <p class="text-sm mt-3">
+                    The homemade scrubber is installed. The crew waits in silence. The CO2 sensor flickers. 4.0%... 3.8%... 2.5%... **Safe.** The episode ends not with a party, but with a debrief on the *actual* NASA tech being developed for this exact scenario.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER PITCH DATA -->
+    <footer class="max-w-5xl mx-auto mt-20 p-8 bg-[#1F2833] rounded-2xl border-t-4 border-[#66FCF1]">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div>
+                <h3 class="orbitron text-[#66FCF1] mb-2">THE TWEEN HOOK</h3>
+                <p class="text-xs text-gray-400 leading-relaxed">
+                    Unlike "educational" shows that feel like school, this uses the **anxiety of survival** to make the science relevant. Tweens (10-13) respond to the "competence porn" of seeing peers handle adult-level crises using logic.
+                </p>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="text-center p-3 bg-[#0B0C10] rounded border border-gray-700">
+                    <div class="text-xl font-bold text-white">45:00</div>
+                    <div class="text-[10px] uppercase text-[#45A29E]">Real-Time Format</div>
+                </div>
+                <div class="text-center p-3 bg-[#0B0C10] rounded border border-gray-700">
+                    <div class="text-xl font-bold text-white">100%</div>
+                    <div class="text-[10px] uppercase text-[#45A29E]">Non-Fiction Physics</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Oxygen Depletion Chart
+        const ctx = document.getElementById('oxygenChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['00:00', '10:00', '20:00', '30:00', '40:00', '45:00'],
+                datasets: [{
+                    label: 'O2 Level %',
+                    data: [100, 85, 60, 40, 20, 18],
+                    borderColor: '#66FCF1',
+                    backgroundColor: 'rgba(102, 252, 241, 0.1)',
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { display: false }, ticks: { color: '#45A29E', font: { size: 10 } } },
+                    y: { min: 0, max: 100, grid: { color: '#1F2833' }, ticks: { color: '#45A29E', font: { size: 10 } } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
